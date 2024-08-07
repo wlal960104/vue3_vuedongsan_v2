@@ -13,7 +13,7 @@
 
     <!--<button type="button" class="btn btn-outline-dark cal-price"></button>-->
     <div class="mb-3">
-      <label class="form-label fs-5" for="exampleFormControlInput1">가격 예상하기</label>
+      <h5>가격 예상하기</h5>
       <input id="exampleFormControlInput1" class="form-control w-50" placeholder="name@example.com" type="email">
     </div>
 

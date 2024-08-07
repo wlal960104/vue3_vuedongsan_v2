@@ -58,9 +58,10 @@ export default {
         this.isReport = false;
       }
     },
+    // 상품 상세 이동
     goDetail(id) {
       console.log('goDetail ::: ', id)
-
+      this.$router.push(`/detail/${id}`)
     }
   }
 }

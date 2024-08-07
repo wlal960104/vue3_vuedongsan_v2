@@ -2,7 +2,7 @@
   <!-- nav -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand" href="#">Vuedongsan</router-link>
+      <router-link class="navbar-brand" href="#" to="/">Vuedongsan</router-link>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/" aria-current="page" class="nav-link active" href="#">Home</router-link>
+            <router-link aria-current="page" class="nav-link active" href="#" to="/">Home</router-link>
           </li>
           <!--<li class="nav-item">-->
           <!--  <a class="nav-link" href="#">Products</a>-->
@@ -30,7 +30,8 @@
   <DiscountBanner v-if="isDiscount === true"/>
 
   <!-- 라우터 -->
-  <router-view @closeDiscountBanner="isDiscount = false" :prodList="prodList"></router-view>
+  <router-view :prodList="prodList" @closeDiscountBanner="isDiscount = false"
+               @openDiscountBanner="isDiscount = true"></router-view>
 
 </template>
 
@@ -55,9 +56,18 @@ export default {
     // List
   },
   props: {},
+  created() {
+    console.log('App // created ::: ');
+    console.log('this > ', this);
+    // home 화면 진입 시 항상 할인배너 노출
+    this.isDiscount = true;
+  },
   mounted() {
+    console.log('APP // mounted ::: ');
 
-  }
+
+  },
+
 }
 </script>
 
