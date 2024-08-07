@@ -2,7 +2,7 @@
   <!-- nav -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Vuedongsan</a>
+      <router-link to="/" class="navbar-brand" href="#">Vuedongsan</router-link>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a aria-current="page" class="nav-link active" href="#">Home</a>
+            <router-link to="/" aria-current="page" class="nav-link active" href="#">Home</router-link>
           </li>
           <!--<li class="nav-item">-->
           <!--  <a class="nav-link" href="#">Products</a>-->
