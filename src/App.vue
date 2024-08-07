@@ -26,10 +26,11 @@
     </div>
   </nav>
 
+  <!-- 할인 배너 -->
+  <DiscountBanner/>
+
   <!-- 부동산 리스트 -->
   <List :prodList="prodList"/>
-
-
 
 
 </template>
@@ -37,6 +38,7 @@
 <script>
 import List from "@/components/List.vue";
 import prodList from "@/assets/prodList"
+import DiscountBanner from "@/assets/DiscountBanner.vue";
 
 export default {
   name : 'App',
@@ -47,6 +49,7 @@ export default {
   },
 
   components: {
+    DiscountBanner,
     List
   },
   props : {
@@ -67,6 +70,4 @@ export default {
 .navbar {
   margin-bottom: 10px;
 }
-
-
 </style>

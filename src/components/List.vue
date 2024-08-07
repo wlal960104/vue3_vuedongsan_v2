@@ -1,11 +1,11 @@
 <template>
   <main>
-    <div class="album py-5">
+    <div class="album py-3">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
           <div v-for="(data,i) in prodList" :key="i" class="col">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm pe-auto">
               <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" focusable="false"
                    height="225"
                    preserveAspectRatio="xMidYMid slice" role="img" width="100%"
@@ -38,7 +38,9 @@
 export default {
   name: 'List',
   data() {
-    return {}
+    return {
+
+    }
   },
   props: {
     prodList: Array
