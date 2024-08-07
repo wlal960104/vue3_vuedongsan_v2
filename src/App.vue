@@ -27,10 +27,10 @@
   </nav>
 
   <!-- 할인 배너 -->
-  <DiscountBanner/>
+  <DiscountBanner v-if="isDiscount === true"/>
 
   <!-- 라우터 -->
-  <router-view :prodList="prodList"></router-view>
+  <router-view @closeDiscountBanner="isDiscount = false" :prodList="prodList"></router-view>
 
 </template>
 
@@ -46,10 +46,10 @@ export default {
   name: 'App',
   data() {
     return {
-      prodList: prodList
+      prodList: prodList,
+      isDiscount: true, // 할인 배너 노출 유무
     }
   },
-
   components: {
     DiscountBanner,
     // List
