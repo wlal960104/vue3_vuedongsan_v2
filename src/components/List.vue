@@ -5,7 +5,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
           <div v-for="(data,i) in prodList" :key="i" class="col">
-            <div class="card shadow-sm pe-auto">
+            <div @click="goDetail(i)" class="card shadow-sm pe-auto">
               <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" focusable="false"
                    height="225"
                    preserveAspectRatio="xMidYMid slice" role="img" width="100%"
@@ -19,7 +19,7 @@
                 <p>{{data.content}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button @click="report(data)" class="btn btn-danger btn-sm">신고</button>
+                    <button @click.stop="report(data)" class="btn btn-danger btn-sm">신고</button>
                   </div>
                   <small class="report-num">신고수 : {{ data.report }}</small>
                   <small class="text-body-secondary ms-auto">{{ data.price }}원</small>
@@ -49,7 +49,7 @@ export default {
   methods : {
     // [신고] 버튼 클릭
     report (data) {
-      console.log('data > ', data);
+      console.log('신고 버튼 클릭');
       if (this.isReport === false) {
         data.report++
         this.isReport = true;
@@ -57,6 +57,10 @@ export default {
         data.report--
         this.isReport = false;
       }
+    },
+    goDetail(id) {
+      console.log('goDetail ::: ', id)
+
     }
   }
 }
