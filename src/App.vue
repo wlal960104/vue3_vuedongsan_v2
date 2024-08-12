@@ -10,13 +10,13 @@
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link aria-current="page" class="nav-link active" href="#" to="/">Home</router-link>
+            <router-link aria-current="page" class="nav-link active" to="/">Home</router-link>
           </li>
           <!--<li class="nav-item">-->
           <!--  <a class="nav-link" href="#">Products</a>-->
           <!--</li>-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Join</a>
+            <router-link class="nav-link" to="/join">Join</router-link>
           </li>
           <!--<li class="nav-item">-->
           <!--  <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
