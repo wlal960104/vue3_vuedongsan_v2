@@ -12,9 +12,10 @@
     </div>
 
     <!--<button type="button" class="btn btn-outline-dark cal-price"></button>-->
-    <div class="mb-3">
-      <h5>가격 예상하기</h5>
-      <input id="exampleFormControlInput1" class="form-control w-50" placeholder="name@example.com" type="email">
+    <div class="mb-3 mt-5 row">
+      <h4 class="d-flex justify-content-start mb-3">🔎가격 예상하기</h4>
+      <input class="form-control w-50 col-auto" placeholder="1" type="text">
+      <div class="col-auto justify-content-end fs-4">100000원</div>
     </div>
 
   </div>
@@ -41,7 +42,4 @@ export default {
   margin-bottom: 30px;
 }
 
-.cal-price {
-  margin-top: 50px;
-}
 </style>
