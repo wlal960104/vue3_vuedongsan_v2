@@ -63,13 +63,13 @@
         <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
                placeholder="우편번호"
                type="text" v-model="postcode" readonly>
+        <button @click="searchAddress" class="btn btn-outline-secondary" type="button">검색</button>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text">주소<span class="highlight-red">&nbsp;*</span></label>
         <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
                id="address" placeholder="주소를 입력해주세요."
                type="text" v-model = "address" readonly>
-        <button @click="searchAddress" class="btn btn-outline-secondary" type="button">주소 검색</button>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text">상세 주소<span class="highlight-red">&nbsp;*</span></label>
