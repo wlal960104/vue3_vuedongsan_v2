@@ -1,4 +1,16 @@
 <template>
+  <!-- 가입 완료 토스트 팝업 -->
+  <div
+    aria-atomic="true"
+    aria-live="assertive" :class="`toast z-3 position-fixed top-50 start-50 translate-middle align-items-center text-bg-primary border-0 ${isShow}`" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        가입이 완료 되었습니다.
+      </div>
+      <button @click="closeToast" aria-label="Close" class="btn-close btn-close-white me-2 m-auto"
+              type="button"></button>
+    </div>
+  </div>
 
   <div class="container join-container">
     <h2 class="p-3">회원가입</h2>
@@ -32,7 +44,9 @@
 
       <!-- 성별 라디오 -->
       <div class="radio-gender row input-join mb-3">
-        <div class="col-auto"><div class="d-inline-flex p-2">성별<span class="highlight-red">&nbsp;*</span></div></div>
+        <div class="col-auto">
+          <div class="d-inline-flex p-2">성별<span class="highlight-red">&nbsp;*</span></div>
+        </div>
         <div class="col-auto">
           <input id="checkMale" autocomplete="off" checked class="btn-check" name="options-base" type="radio">
           <label class="btn btn-outline-primary" for="checkMale" style="margin-right: 10px">남</label>
@@ -40,7 +54,7 @@
           <label class="btn btn-outline-danger" for="checkFemale">여</label>
         </div>
       </div>
-       <div class="input-group mb-3 input-birthday">
+      <div class="input-group mb-3 input-birthday">
         <label class="input-group-text">생년월일<span class="highlight-red">&nbsp;*</span></label>
         <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
                placeholder="이름을 입력해주세요."
@@ -52,7 +66,7 @@
                placeholder="휴대폰 번호를 입력해주세요."
                type="text">
       </div>
-       <div class="input-group mb-3">
+      <div class="input-group mb-3">
         <label class="input-group-text">이메일 주소<span class="highlight-red">&nbsp;*</span></label>
         <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
                placeholder="이메일 주소를 입력해주세요."
@@ -60,16 +74,16 @@
       </div>
       <div class="input-group mb-3 input-postcode">
         <label class="input-group-text">우편번호<span class="highlight-red">&nbsp;*</span></label>
-        <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
-               placeholder="우편번호"
-               type="text" v-model="postcode" readonly>
-        <button @click="searchAddress" class="btn btn-outline-secondary" type="button">검색</button>
+        <input v-model="postcode" aria-describedby="button-addon2" aria-label="Recipient's username"
+               class="form-control"
+               placeholder="우편번호" readonly type="text">
+        <button class="btn btn-outline-secondary" type="button" @click="searchAddress">검색</button>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text">주소<span class="highlight-red">&nbsp;*</span></label>
-        <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
-               id="address" placeholder="주소를 입력해주세요."
-               type="text" v-model = "address" readonly>
+        <input id="address" v-model="address" aria-describedby="button-addon2"
+               aria-label="Recipient's username" class="form-control"
+               placeholder="주소를 입력해주세요." readonly type="text">
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text">상세 주소<span class="highlight-red">&nbsp;*</span></label>
@@ -77,8 +91,7 @@
                placeholder="상세 주소를 입력해주세요."
                type="text">
       </div>
-       <button type="submit" class="btn btn-primary">가입하기</button>
-
+      <button class="btn btn-primary" type="submit" @click="join()">가입하기</button>
     </div>
   </div>
 </template>
@@ -88,15 +101,16 @@ export default {
   name: 'Join',
   data() {
     return {
-      postcode: "",
-      address: "",
-      extraAddress: "",
+      postcode: '',
+      address: '',
+      extraAddress: '',
+      isShow: '' // 가입 완료 토스트팝업 노출 여부
     }
   },
-  methods : {
+  methods: {
     searchAddress() {
-       new window.daum.Postcode({
-         oncomplete: (data) => {
+      new window.daum.Postcode({
+        oncomplete: (data) => {
           if (this.extraAddress !== "") {
             this.extraAddress = "";
           }
@@ -133,13 +147,22 @@ export default {
           this.postcode = data.zonecode;
         },
       }).open();
+    },
+    // [가입하기] 버튼 클릭
+    join() {
+      this.isShow = 'show';
+    },
+    // 토스트 팝업 [x] 버튼 클릭
+    closeToast() {
+      this.isShow = 'hide';
+
     }
   },
   mounted() {
     console.log('this > ', this);
+
   },
   updated() {
-    console.log('뭐냐고')
   }
 }
 </script>
@@ -148,12 +171,15 @@ export default {
 .join-container {
   width: 80%;
 }
+
 .input-join {
   width: 100%;
 }
+
 .highlight-red {
   color: red;
 }
+
 .join-template {
   margin-top: 30px;
   margin-bottom: 30px;
