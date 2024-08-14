@@ -33,6 +33,7 @@
   <router-view :prodList="prodList" @closeDiscountBanner="isDiscount = false"
                @openDiscountBanner="isDiscount = true"></router-view>
 
+
 </template>
 
 <script>

@@ -49,7 +49,6 @@ export default {
   methods : {
     // [신고] 버튼 클릭
     report (data) {
-      console.log('신고 버튼 클릭');
       if (this.isReport === false) {
         data.report++
         this.isReport = true;
@@ -60,7 +59,6 @@ export default {
     },
     // 상품 상세 이동
     goDetail(id) {
-      console.log('goDetail ::: ', id)
       this.$router.push(`/detail/${id}`)
     }
   }
