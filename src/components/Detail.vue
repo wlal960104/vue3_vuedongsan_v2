@@ -1,6 +1,6 @@
 <template>
-
-  <div class="container">
+  <!-- TODO: 패딩바텀 주기 (밑에 공간 여유필요) -->
+  <div class="container pb-5">
     <div class="card">
       <div class="card-header fs-3">
         {{ prodList[$route.params.id].title }}
