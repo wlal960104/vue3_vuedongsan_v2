@@ -22,13 +22,12 @@ export default {
   },
   mounted() {
     // 10초에 1% 감소, 0되면 stop
-    // TODO: 0되면 사라지게 만들어보기
     const decPercentage = setInterval(() => {
       this.percentage--;
       if (this.percentage === 0) {
         clearInterval(decPercentage);
       }
-    }, 10000);
+    }, 1000);
   }
 }
 </script>
